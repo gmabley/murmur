@@ -5,11 +5,11 @@ services:
     build: .
     container_name: murmur
     privileged: true
-    tty: true
     command: murmurd
     restart: always
     ports: 
       - "64735:64738"
+      - "64735:64738/udp"
     env_file: .env
     volumes: 
       - .:/home/murmur/data

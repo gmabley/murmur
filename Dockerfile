@@ -7,8 +7,6 @@ RUN useradd -ms /bin/bash mumble
 # update app cache
 RUN apt-get update
 
-#RUN apt-get install libssl1.0-dev -y && rm -rf /var/lib/apt/lists/
-
 # install murmur
 RUN echo "mumble-server mumble-server/password string ${SUPERUSER_PASSWORD}\nmumble-server mumble-server/start_daemon boolean true\nmumble-server mumble-server/use_capabilities boolean false" | debconf-set-selections
 RUN apt-get install mumble-server -y
