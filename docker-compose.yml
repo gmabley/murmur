@@ -4,10 +4,12 @@ services:
   murmur: 
     build: .
     container_name: murmur
-    command: service mumble-server restart
+    privileged: true
+    tty: true
+    command: murmurd
     restart: always
     ports: 
-      - "64738:64738"
+      - "64735:64738"
     env_file: .env
     volumes: 
       - .:/home/murmur/data
