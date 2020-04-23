@@ -4,14 +4,10 @@ services:
   murmur: 
     build: .
     container_name: murmur
-    privileged: true
-    cap_add:
-        - SYS_ADMIN
-        - DAC_READ_SEARCH
-    command: sh /opt/mumble/run.sh
+    command: service mumble-server restart
     restart: always
     ports: 
       - "64738:64738"
     env_file: .env
     volumes: 
-      - murmur_data:/etc/mumble
+      - .:/home/murmur/data
