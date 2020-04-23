@@ -1,3 +1,0 @@
-SUPERUSER_PASSWORD=a_password
-CONFIG_PATH=/home/murmur/data/config.ini
-DEBIAN_FRONTEND=noninteractive
