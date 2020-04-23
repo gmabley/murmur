@@ -1,15 +1,16 @@
---- 
-version: "3.2"
-services: 
-  murmur: 
-    build: .
-    container_name: murmur
-    privileged: true
-    command: murmurd
-    restart: always
-    ports: 
-      - "64735:64738"
-      - "64735:64738/udp"
-    env_file: .env
-    volumes: 
-      - .:/home/murmur/data
+version: '3.7'
+
+services:
+  mumble:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - data:/var/lib/murmur/:rw
+    ports:
+      - 6502:6502
+      - 64738:64738
+      - 64738:64738/udp
+
+volumes:
+  data:
